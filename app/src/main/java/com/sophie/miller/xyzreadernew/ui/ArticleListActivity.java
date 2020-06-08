@@ -64,7 +64,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        getLoaderManager().initLoader(0, null, (android.app.LoaderManager.LoaderCallbacks<Object>) this);
+        getLoaderManager().initLoader(0, null, this);
 
         if (savedInstanceState == null) {
             refresh();

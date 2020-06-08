@@ -1,20 +1,13 @@
 package com.sophie.miller.xyzreadernew.ui;
 
-import android.app.LoaderManager;
+
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import android.os.Bundle;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -26,14 +19,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.core.app.ShareCompat;
-import androidx.fragment.app.Fragment;
-import androidx.palette.graphics.Palette;
-
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.sophie.miller.xyzreadernew.R;
 import com.sophie.miller.xyzreadernew.data.ArticleLoader;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import androidx.core.app.ShareCompat;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+import androidx.palette.graphics.Palette;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -109,7 +109,7 @@ public class ArticleDetailFragment extends Fragment implements
         // the fragment's onCreate may cause the same LoaderManager to be dealt to multiple
         // fragments because their mIndex is -1 (haven't been added to the activity yet). Thus,
         // we do this in onActivityCreated.
-        getLoaderManager().initLoader(0, null, (androidx.loader.app.LoaderManager.LoaderCallbacks<Object>) this);
+        getLoaderManager().initLoader(0, null, this);
     }
 
     @Override
